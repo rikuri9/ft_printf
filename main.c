@@ -6,7 +6,7 @@
 /*   By: riwamoto <riwamoto@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 16:50:27 by riwamoto          #+#    #+#             */
-/*   Updated: 2026/10/22 20:16:58 by riwamoto         ###   ########.fr       */
+/*   Updated: 2026/10/23 20:31:50 by riwamoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,38 +21,41 @@ int	main(void)
 	char	c2 = '2';
 	int		d = -2147483648;
 	int		i = 2147483647;
+	char	*p1 = NULL;
+	char	*p2 = "World";
 
-	ft_printf("Hello world %c two %c", c1, c2);
+	int n11 = ft_printf("%c  %c", c1, c2);
 	printf(" \n\n");
-	printf("Hello world %c two %c", c1, c2);
+	int n12 = printf("%c  %c", c1, c2);
 	printf(" \n\n");
-	ft_printf("Hello world %s two %s", s1, s2);
+	int n21 = ft_printf("%s  %s", s1, s2);
 	printf(" \n\n");
-	printf("Hello world %s two %s", s1, s2);
+	int n22 = printf("%s  %s", s1, s2);
 	printf(" \n\n");
-	//ft_printf("Hello world %p two %p", p1, p2);
-	//printf(" \n\n");
-	//printf("Hello world %p two %p", p1, p2);
-	//printf(" \n\n");
-	ft_printf("Hello world %d two %i", d, i);
+	int n31 = ft_printf("%p  %p", p1, p2);
 	printf(" \n\n");
-	printf("Hello world %d two %i", d, i);
+	int n32 = printf("%p  %p", p1, p2);
 	printf(" \n\n");
-	ft_printf("Hello world %u two %u", d, i);
+	int n41 = ft_printf("%d  %i", d, i);
 	printf(" \n\n");
-	printf("Hello world %u two %u", d, i);
+	int n42 = printf("%d  %i", d, i);
 	printf(" \n\n");
-	//ft_printf("Hello world %x two %x", d, i);
-	//printf(" \n\n");
-	printf("Hello world %x two %x", d, i);
+	int n51 = ft_printf("%u  %u", d, i);
 	printf(" \n\n");
-	//ft_printf("Hello world %X two %X", d, i);
-	//printf(" \n\n");
-	printf("Hello world %X two %X", d, i);
+	int n52 = printf("%u  %u", d, i);
 	printf(" \n\n");
-	ft_printf("Hello world %% two %%");
+	int n61 = ft_printf("%x  %x", d, i);
 	printf(" \n\n");
-	printf("Hello world %% two %%");
+	int n62 = printf("%x  %x", d, i);
 	printf(" \n\n");
+	int n71 = ft_printf("%X  %X", d, i);
+	printf(" \n\n");
+	int n72 = printf("%X  %X", d, i);
+	printf(" \n\n");
+	int n81 = ft_printf("%%  %%");
+	printf(" \n\n");
+	int n82 = printf("%%  %%");
+	printf(" \n\n");
+	printf("%d %d\n%d %d\n%d %d\n%d %d\n%d %d\n%d %d\n%d %d\n%d %d\n", n11, n12, n21, n22, n31, n32, n41, n42, n51, n52, n61, n62, n71, n72, n81, n82);
 	return (0);
 }

@@ -1,23 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putbase.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: riwamoto <riwamoto@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/08 11:56:41 by riwamoto          #+#    #+#             */
-/*   Updated: 2026/10/22 20:05:11 by riwamoto         ###   ########.fr       */
+/*   Created: 2026/10/23 16:59:36 by riwamoto          #+#    #+#             */
+/*   Updated: 2026/10/23 20:28:22 by riwamoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-size_t	ft_strlen(const char *s)
+static int	str_len(const char *s)
 {
-	size_t	length;
+	int	len;
 
-	length = 0;
-	while (s[length])
-		length++;
-	return (length);
+	len = 0;
+	while (s[len])
+		len++;
+	return (len);
+}
+
+int	ft_putbase(long n, const char *base)
+{
+	int		count;
+	int		len;
+
+	count = 0;
+	len = str_len(base);
+	if (n < 0)
+		n = -n;
+	if (n >= (long)len)
+		count += ft_putbase(n / len, base);
+	count += ft_putchar(base[n % len]);
+	return (count);
 }

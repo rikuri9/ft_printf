@@ -6,7 +6,7 @@
 /*   By: riwamoto <riwamoto@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 13:54:05 by riwamoto          #+#    #+#             */
-/*   Updated: 2026/10/22 20:03:46 by riwamoto         ###   ########.fr       */
+/*   Updated: 2026/10/23 20:16:10 by riwamoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,13 @@
 # include <stdarg.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdint.h>
 
 int		ft_printf(const char *fmt, ...);
-void	ft_putchar(char c);
-void	ft_putnbr(int n);
-void	ft_putstr(char *s);
-size_t	ft_strlen(const char *s);
+int		ft_putchar(char c);
+int		ft_putbase(long n, const char *base);
+int		ft_putnbr(int n);
+int		ft_putptr(char *s);
+int		ft_putstr(char *s);
 
 #endif
