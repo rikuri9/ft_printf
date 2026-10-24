@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: riwamoto <riwamoto@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/13 19:41:36 by riwamoto          #+#    #+#             */
-/*   Updated: 2026/10/23 17:14:55 by riwamoto         ###   ########.fr       */
+/*   Created: 2026/10/22 13:54:05 by riwamoto          #+#    #+#             */
+/*   Updated: 2026/10/24 12:02:30 by riwamoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-int	ft_putstr(char *s)
-{
-	int	count;
+# include <stdarg.h>
+# include <stdlib.h>
+# include <unistd.h>
+# include <stdint.h>
 
-	count = 0;
-	if (s == NULL)
-	{
-		write(1, "(null)", 6);
-		return (6);
-	}
-	while (*s)
-		count += ft_putchar(*s++);
-	return (count);
-}
+int		ft_printf(const char *fmt, ...);
+int		ft_putchar(char c);
+int		ft_putbase(unsigned long n, const char *base);
+int		ft_putnbr(long n);
+int		ft_putptr(char *s);
+int		ft_putstr(char *s);
+
+#endif

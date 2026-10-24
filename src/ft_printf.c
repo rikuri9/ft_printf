@@ -6,7 +6,7 @@
 /*   By: riwamoto <riwamoto@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/18 19:00:37 by riwamoto          #+#    #+#             */
-/*   Updated: 2026/10/23 20:16:32 by riwamoto         ###   ########.fr       */
+/*   Updated: 2026/10/24 12:00:20 by riwamoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,16 @@ static int	to_convert(char spec, va_list *ap)
 	if (spec == 'p')
 		return (ft_putptr(va_arg(*ap, void *)));
 	if (spec == 'd' || spec == 'i')
-		return (ft_putnbr(va_arg(*ap, int)));
+		return (ft_putnbr((long)va_arg(*ap, int)));
 	if (spec == 'u')
-		return (ft_putbase(va_arg(*ap, long), "0123456789"));
+		return (ft_putbase(va_arg(*ap, unsigned int),
+				"0123456789"));
 	if (spec == 'x')
-		return (ft_putbase(va_arg(*ap, long), "0123456789abcdef"));
+		return (ft_putbase(va_arg(*ap, unsigned int),
+				"0123456789abcdef"));
 	if (spec == 'X')
-		return (ft_putbase(va_arg(*ap, long), "0123456789ABCDEF"));
+		return (ft_putbase(va_arg(*ap, unsigned int),
+				"0123456789ABCDEF"));
 	if (spec == '%')
 		return (ft_putchar('%'));
 	return (0);

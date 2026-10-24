@@ -1,38 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putbase.c                                       :+:      :+:    :+:   */
+/*   ft_putptr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: riwamoto <riwamoto@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/23 16:59:36 by riwamoto          #+#    #+#             */
-/*   Updated: 2026/10/23 20:28:22 by riwamoto         ###   ########.fr       */
+/*   Created: 2026/10/23 15:26:45 by riwamoto          #+#    #+#             */
+/*   Updated: 2026/10/24 11:38:45 by riwamoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	str_len(const char *s)
+int	ft_putptr(char *s)
 {
-	int	len;
+	int	count;
 
-	len = 0;
-	while (s[len])
-		len++;
-	return (len);
-}
-
-int	ft_putbase(long n, const char *base)
-{
-	int		count;
-	int		len;
-
-	count = 0;
-	len = str_len(base);
-	if (n < 0)
-		n = -n;
-	if (n >= (long)len)
-		count += ft_putbase(n / len, base);
-	count += ft_putchar(base[n % len]);
+	if (s == NULL)
+		return (ft_putstr("(nil)"));
+	count = ft_putstr("0x");
+	count += ft_putbase((unsigned long)s, "0123456789abcdef");
 	return (count);
 }
