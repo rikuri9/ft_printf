@@ -6,13 +6,13 @@
 /*   By: riwamoto <riwamoto@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 19:40:56 by riwamoto          #+#    #+#             */
-/*   Updated: 2026/10/24 12:35:23 by riwamoto         ###   ########.fr       */
+/*   Updated: 2026/10/24 18:17:11 by riwamoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int	ft_putchar(char c)
+int	ft_putchar(int c)
 {
 	write(1, &c, 1);
 	return (1);
