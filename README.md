@@ -15,10 +15,10 @@
 リポジトリのルートで下記コマンドを実行
 
 ```bash
-make		# (make all) libftprintf.a を作成
-make clean  # オブジェクトファイルを削除
-make fclean # オブジェクトファイルと libftprintf.a を削除
-make re		# fclean して再ビルド
+make			# (make all) libftprintf.a を作成
+make clean  	# オブジェクトファイルを削除
+make fclean 	# オブジェクトファイルと libftprintf.a を削除
+make re			# fclean して再ビルド
 ```
 
 ### Usage
