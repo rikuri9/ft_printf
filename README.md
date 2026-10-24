@@ -21,6 +21,8 @@ make fclean     # オブジェクトファイルと libftprintf.a を削除
 make re         # fclean して再ビルド
 ```
 
+すべてのソースは `cc` と `-Wall -Wextra -Werror` でコンパイルされ、 `libftprintf.a` が作成される。
+
 ### Usage
 
 
