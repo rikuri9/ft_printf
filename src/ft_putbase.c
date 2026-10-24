@@ -6,11 +6,11 @@
 /*   By: riwamoto <riwamoto@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/23 16:59:36 by riwamoto          #+#    #+#             */
-/*   Updated: 2026/10/24 11:36:12 by riwamoto         ###   ########.fr       */
+/*   Updated: 2026/10/24 12:35:20 by riwamoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
 static int	str_len(const char *s)
 {

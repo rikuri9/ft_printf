@@ -6,11 +6,11 @@
 /*   By: riwamoto <riwamoto@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 19:41:36 by riwamoto          #+#    #+#             */
-/*   Updated: 2026/10/24 11:43:52 by riwamoto         ###   ########.fr       */
+/*   Updated: 2026/10/24 12:35:33 by riwamoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
 int	ft_putstr(char *s)
 {

@@ -6,11 +6,11 @@
 /*   By: riwamoto <riwamoto@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/18 19:00:37 by riwamoto          #+#    #+#             */
-/*   Updated: 2026/10/24 12:00:20 by riwamoto         ###   ########.fr       */
+/*   Updated: 2026/10/24 12:34:55 by riwamoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
 static int	to_convert(char spec, va_list *ap)
 {

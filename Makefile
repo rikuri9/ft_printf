@@ -1,10 +1,10 @@
 NAME = libftprintf.a
-SRCS = ft_printf.c \
-		ft_putchar.c \
-		ft_putbase.c \
-		ft_putnbr.c \
-		ft_putptr.c \
-		ft_putstr.c
+SRCS = ./src/ft_printf.c \
+		./src/ft_putchar.c \
+		./src/ft_putbase.c \
+		./src/ft_putnbr.c \
+		./src/ft_putptr.c \
+		./src/ft_putstr.c
 		
 OBJS = $(SRCS:.c=.o)
 CC = cc
@@ -15,7 +15,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
-%.o: %.c ft_printf.h
+%.o: %.c includes/ft_printf.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
