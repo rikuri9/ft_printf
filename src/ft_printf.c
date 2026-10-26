@@ -6,7 +6,7 @@
 /*   By: riwamoto <riwamoto@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/18 19:00:37 by riwamoto          #+#    #+#             */
-/*   Updated: 2026/10/26 18:08:50 by riwamoto         ###   ########.fr       */
+/*   Updated: 2026/10/26 19:11:35 by riwamoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static int	to_convert(char spec, va_list *ap)
 				"0123456789ABCDEF"));
 	if (spec == '%')
 		return (ft_putchar('%'));
-	return (ft_putchar(spec));
+	return (-1);
 }
 
 int	ft_printf(const char *fmt, ...)
