@@ -4,7 +4,8 @@ SRCS = ./src/ft_printf.c \
 		./src/ft_putbase.c \
 		./src/ft_putnbr.c \
 		./src/ft_putptr.c \
-		./src/ft_putstr.c
+		./src/ft_putstr.c \
+		./src/ft_strlen.c
 		
 OBJS = $(SRCS:.c=.o)
 CC = cc
