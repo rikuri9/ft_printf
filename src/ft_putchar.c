@@ -6,7 +6,7 @@
 /*   By: riwamoto <riwamoto@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 19:40:56 by riwamoto          #+#    #+#             */
-/*   Updated: 2026/10/24 18:17:11 by riwamoto         ###   ########.fr       */
+/*   Updated: 2026/10/26 15:37:49 by riwamoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 int	ft_putchar(int c)
 {
-	write(1, &c, 1);
+	write(STDOUT_FILENO, &c, 1);
 	return (1);
 }

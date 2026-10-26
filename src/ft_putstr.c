@@ -6,23 +6,40 @@
 /*   By: riwamoto <riwamoto@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 19:41:36 by riwamoto          #+#    #+#             */
-/*   Updated: 2026/10/24 12:35:33 by riwamoto         ###   ########.fr       */
+/*   Updated: 2026/10/26 18:43:12 by riwamoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
+static size_t	str_len(char *s)
+{
+	size_t	len;
+
+	len = 0;
+	while (s[len])
+		len++;
+	return (len);
+}
+
 int	ft_putstr(char *s)
 {
-	int	count;
+	size_t	count;
+	size_t	len;
+	size_t	ret;
 
-	count = 0;
 	if (s == NULL)
+		s = "(null)";
+	len = str_len(s);
+	if (len > INT_MAX)
+		return (-1);
+	count = 0;
+	while (count < len)
 	{
-		write(1, "(null)", 6);
-		return (6);
+		ret = write(STDOUT_FILENO, s + count, len - count);
+		if (ret <= 0)
+			return (-1);
+		count += ret;
 	}
-	while (*s)
-		count += ft_putchar(*s++);
-	return (count);
+	return ((int)count);
 }

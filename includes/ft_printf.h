@@ -6,7 +6,7 @@
 /*   By: riwamoto <riwamoto@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 13:54:05 by riwamoto          #+#    #+#             */
-/*   Updated: 2026/10/24 18:45:30 by riwamoto         ###   ########.fr       */
+/*   Updated: 2026/10/26 16:36:57 by riwamoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdint.h>
+# include <limits.h>
 
 int		ft_printf(const char *fmt, ...);
 int		ft_putchar(int c);

@@ -6,7 +6,7 @@
 /*   By: riwamoto <riwamoto@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/18 19:00:37 by riwamoto          #+#    #+#             */
-/*   Updated: 2026/10/24 12:34:55 by riwamoto         ###   ########.fr       */
+/*   Updated: 2026/10/26 18:08:50 by riwamoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int	to_convert(char spec, va_list *ap)
 	if (spec == 'p')
 		return (ft_putptr(va_arg(*ap, void *)));
 	if (spec == 'd' || spec == 'i')
-		return (ft_putnbr((long)va_arg(*ap, int)));
+		return (ft_putnbr(va_arg(*ap, int)));
 	if (spec == 'u')
 		return (ft_putbase(va_arg(*ap, unsigned int),
 				"0123456789"));
@@ -33,23 +33,33 @@ static int	to_convert(char spec, va_list *ap)
 				"0123456789ABCDEF"));
 	if (spec == '%')
 		return (ft_putchar('%'));
-	return (0);
+	return (ft_putchar(spec));
 }
 
 int	ft_printf(const char *fmt, ...)
 {
 	va_list	ap;
 	int		count;
+	int		ret;
 
 	count = 0;
 	va_start(ap, fmt);
 	while (*fmt)
 	{
-		if (*fmt == '%' && *(fmt + 1))
-			count += to_convert(*(++fmt), &ap);
+		if (*fmt == '%')
+		{
+			if (*++fmt == '\0')
+				break ;
+			ret = to_convert(*fmt++, &ap);
+		}
 		else
-			count += ft_putchar(*fmt);
-		fmt++;
+			ret = ft_putchar(*fmt++);
+		if (ret < 0)
+		{
+			va_end(ap);
+			return (-1);
+		}
+		count += ret;
 	}
 	va_end(ap);
 	return (count);
