@@ -6,7 +6,7 @@
 /*   By: riwamoto <riwamoto@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 19:40:56 by riwamoto          #+#    #+#             */
-/*   Updated: 2026/11/01 13:10:23 by riwamoto         ###   ########.fr       */
+/*   Updated: 2026/11/01 16:25:33 by riwamoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,27 @@
 
 int	ft_putchar(int c)
 {
-	write(STDOUT_FILENO, &c, 1);
-	return (1);
+	return (write(STDOUT_FILENO, &c, 1));
 }
 
-int	ft_putstr(char *s)
+int	ft_putstr(const char *s)
 {
-	size_t	count;
+	size_t	written;
 	size_t	len;
-	size_t	ret;
+	ssize_t	ret;
 
 	if (s == NULL)
-		s = "(null)";
+		return (ft_putstr("(null)"));
 	len = ft_strlen(s);
 	if (len > INT_MAX)
 		return (-1);
-	count = 0;
-	while (count < len)
+	written = 0;
+	while (written < len)
 	{
-		ret = write(STDOUT_FILENO, s + count, len - count);
+		ret = write(STDOUT_FILENO, s + written, len - written);
 		if (ret <= 0)
 			return (-1);
-		count += ret;
+		written += ret;
 	}
-	return ((int)count);
+	return (written);
 }

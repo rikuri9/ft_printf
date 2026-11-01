@@ -6,7 +6,7 @@
 /*   By: riwamoto <riwamoto@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 19:43:26 by riwamoto          #+#    #+#             */
-/*   Updated: 2026/11/01 13:16:40 by riwamoto         ###   ########.fr       */
+/*   Updated: 2026/11/01 16:09:47 by riwamoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,39 +15,58 @@
 int	ft_putbase(unsigned long n, const char *base)
 {
 	int				count;
+	int				ret;
 	unsigned long	len;
 
 	count = 0;
-	len = (unsigned long)ft_strlen(base);
+	len = ft_strlen(base);
 	if (n >= len)
-		count += ft_putbase(n / len, base);
-	count += ft_putchar(base[n % len]);
+	{
+		ret = ft_putbase(n / len, base);
+		if (ret == -1)
+			return (-1);
+		count += ret;
+	}
+	ret = ft_putchar(base[n % len]);
+	if (ret == -1)
+		return (-1);
+	count += ret;
 	return (count);
 }
 
 int	ft_putnbr(long n)
 {
 	int	count;
+	int	ret;
 
 	count = 0;
 	if (n < 0)
 	{
-		count += ft_putchar('-');
+		ret = ft_putchar('-');
+		if (ret == -1)
+			return (-1);
+		count += ret;
 		n = -n;
 	}
-	count += ft_putbase((unsigned long)n, "0123456789");
+	ret = ft_putbase((unsigned long)n, "0123456789");
+	if (ret == -1)
+		return (-1);
+	count += ret;
 	return (count);
 }
 
 int	ft_putptr(void *ptr)
 {
-	int			count;
-	uintptr_t	addr;
+	int	count;
+	int	ret;
 
 	if (ptr == NULL)
 		return (ft_putstr("(nil)"));
-	addr = (uintptr_t)ptr;
 	count = ft_putstr("0x");
-	count += ft_putbase((unsigned long)addr, "0123456789abcdef");
-	return (count);
+	if (count == -1)
+		return (-1);
+	ret = ft_putbase((unsigned long)ptr, "0123456789abcdef");
+	if (ret == -1)
+		return (-1);
+	return (count + ret);
 }
