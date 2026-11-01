@@ -1,16 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_print_chars.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: riwamoto <riwamoto@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/13 19:41:36 by riwamoto          #+#    #+#             */
-/*   Updated: 2026/10/26 19:31:44 by riwamoto         ###   ########.fr       */
+/*   Created: 2026/10/13 19:40:56 by riwamoto          #+#    #+#             */
+/*   Updated: 2026/11/01 13:10:23 by riwamoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
+
+int	ft_putchar(int c)
+{
+	write(STDOUT_FILENO, &c, 1);
+	return (1);
+}
 
 int	ft_putstr(char *s)
 {
