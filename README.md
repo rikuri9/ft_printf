@@ -12,7 +12,31 @@ ft_printfは、C標準ライブラリ（libc）の関数である `printf` の�
 * C言語の可変長引数関数（variadic functions）に対する理解
 * 今後の課題で使用できる自分用のライブラリの作成
 
+**実装範囲**
+
+* 対応する変換指定子は `%c` `%s` `%p` `%d` `%i` `%u` `%x` `%X` `%%` の9種類
+* フラグ（`-` `0` `.` `#` `+` ` `）には対応していない（ボーナスは未実装）
+* バッファリングは行わず、出力のたびに `write` を呼び出す
+
 ## Instructions
+
+### Directory structure
+
+```
+project/
+├── includes/
+|   └── ft_printf.h
+├── src/
+|   ├── ft_print_chars.c    # ft_putchar, ft_putstr
+|   ├── ft_print_nums.c     # ft_putbase, ft_putnbr, ft_putptr
+|   ├── ft_printf.c         # to_convert, ft_printf
+|   └── ft_strlen.c         # ft_strlen
+├── Makefile
+└── README.md
+```
+
+> [!NOTE]
+> `libft` を使わず `ft_strlen` を単体でおいた理由は、依存を減らしてライブラリを単体でビルドできるようにするため
 
 ### Compile
 
@@ -65,18 +89,21 @@ Hello, world! 42
 
 ## Algorithm and data structure
 
-```
-project/
-├── includes/
-|   └── ft_printf.h
-├── src/
-|   ├── ft_print_chars.c    # ft_putchar, ft_putstr
-|   ├── ft_print_nums.c     # ft_putbase, ft_putnbr, ft_putptr
-|   ├── ft_printf.c
-|   └── ft_strlen.c
-├── Makefile
-└── README.md
-```
+### Process flow
+
+`ft_printf` は次の手順で処理を行う
+
+1. `va_start` で可変長引数の読み取りを開始する
+2. フォーマット文字列を先頭から 1 文字ずつ操作する
+3. 通常文字なら `ft_printf` でしのまま出力する
+4. `%` を見つけたら次の文字を読み、変換指定子に対応する関数を呼び出す。引数は `va_arg` で必要な型として取り出す
+5. 各関数が返した出力文字数を合計に加算する。いずれかの関数が `-1` を返した時点で処理を打ち切り、`va_end` を呼んで `-1` を返す。
+6. フォーマット文字列の終端まで到達したら `va_end` を呼び、出力した文字数の合計を返す。
+
+> [!NOTE]
+> * フォーマット末尾の単独の `%` はその次の文字が終端ならばループを終了するようにした。
+> * 未定義の変換指定子が来た場合、エラーを出すようにした
+> * 合計文字数がINT_MAXを超える場合もエラーを出すようにした
 
 #### ft_putchar(int c)
 
@@ -95,6 +122,10 @@ project/
 
 - 数値を任意の基数で出力する関数で、基数文字列baseの長さがそのまま基数となる。
 - 基数と各桁にどの文字を使うかを1つの引数で同時に表せるため、`%p` `%d` `%i` `%u` `%x` `%X` でこの関数を使用している。
+- 引数を `unsigned long` にしているのは、64 bit のポインタ値を `%p` で扱うためである。
+  
+> [!NOTE]
+> 上位の桁から出力するため再帰で n / 基数 を先に処理した
 
 #### ft_putnbr(long n)
 
@@ -105,11 +136,6 @@ project/
 
 - `%p` 用の関数で `0x` を出力してからアドレスを小文字16進数で出力している。
 - `NULL` のとき(nil)となっているのはglibcに合わせた挙動を再現するため。
-
-### 関数全体としての処理
-
-- 成功したら出力した文字数を `int` で返す
-- `write` が失敗したら `-1` を返すようにしている
 
 ## Resources
 
