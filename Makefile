@@ -3,7 +3,7 @@ SRCS = src/ft_printf.c \
 		src/ft_print_chars.c \
 		src/ft_print_nums.c \
 		src/ft_strlen.c
-		
+
 OBJS = $(SRCS:.c=.o)
 CC = cc
 CFLAGS = -Wall -Wextra -Werror

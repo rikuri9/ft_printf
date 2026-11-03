@@ -6,7 +6,7 @@
 /*   By: riwamoto <riwamoto@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 13:54:05 by riwamoto          #+#    #+#             */
-/*   Updated: 2026/11/01 15:14:01 by riwamoto         ###   ########.fr       */
+/*   Updated: 2026/11/03 13:50:10 by riwamoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define FT_PRINTF_H
 
 # include <stdarg.h>
-# include <stdlib.h>
 # include <unistd.h>
 # include <stdint.h>
 # include <limits.h>
