@@ -6,13 +6,13 @@
 /*   By: riwamoto <riwamoto@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 19:43:26 by riwamoto          #+#    #+#             */
-/*   Updated: 2026/11/01 16:09:47 by riwamoto         ###   ########.fr       */
+/*   Updated: 2026/11/07 11:29:46 by riwamoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putbase(unsigned long n, const char *base)
+int	ft_putbase(uintptr_t n, const char *base)
 {
 	int				count;
 	int				ret;
@@ -48,7 +48,7 @@ int	ft_putnbr(long n)
 		count += ret;
 		n = -n;
 	}
-	ret = ft_putbase((unsigned long)n, "0123456789");
+	ret = ft_putbase((uintptr_t)n, "0123456789");
 	if (ret == -1)
 		return (-1);
 	count += ret;
@@ -65,7 +65,7 @@ int	ft_putptr(void *ptr)
 	count = ft_putstr("0x");
 	if (count == -1)
 		return (-1);
-	ret = ft_putbase((unsigned long)ptr, "0123456789abcdef");
+	ret = ft_putbase((uintptr_t)ptr, "0123456789abcdef");
 	if (ret == -1)
 		return (-1);
 	return (count + ret);
