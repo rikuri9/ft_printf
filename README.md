@@ -136,7 +136,10 @@ Hello, world! 42
 
 ### Reference material
 
-
+- [va_arg](https://ja.cppreference.com/c/variadic/va_arg): va_argの構造、使用の確認
+- [va_list](https://ja.cppreference.com/c/variadic/va_list): va_listの構造、使用の確認
+- [va_start](https://ja.cppreference.com/c/variadic/va_start): va_startの構造、使用の確認
+- [va_end](https://ja.cppreference.com/c/variadic/va_end): va_endの構造、使用の確認
 
 ### How AI was used
 
