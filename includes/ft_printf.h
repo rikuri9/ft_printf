@@ -20,7 +20,7 @@
 
 int		ft_printf(const char *fmt, ...);
 int		ft_putchar(int c);
-int		ft_putbase(unsigned long n, const char *base);
+int		ft_putbase(uintptr_t n, const char *base);
 int		ft_putnbr(long n);
 int		ft_putptr(void *s);
 int		ft_putstr(const char *s);
